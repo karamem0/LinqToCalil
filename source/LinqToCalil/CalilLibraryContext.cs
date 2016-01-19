@@ -5,7 +5,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LinqToCalil {
+namespace Karamem0.LinqToCalil {
 
     /// <summary>
     /// 図書館検索のコンテキストを表します。
@@ -33,7 +33,7 @@ namespace LinqToCalil {
         public Expression Expression { get; private set; }
 
         /// <summary>
-        /// <see cref="LinqToCalil.CalilLibraryContext"/> クラスの新しいインスタンスを初期化します。
+        /// <see cref="Karamem0.LinqToCalil.CalilLibraryContext"/> クラスの新しいインスタンスを初期化します。
         /// </summary>
         /// <param name="appKey">アプリケーション キーを示す <see cref="System.String"/>。</param>
         internal CalilLibraryContext(string appKey) {
@@ -42,7 +42,7 @@ namespace LinqToCalil {
         }
 
         /// <summary>
-        /// <see cref="LinqToCalil.CalilLibraryContext"/> クラスの新しいインスタンスを初期化します。
+        /// <see cref="Karamem0.LinqToCalil.CalilLibraryContext"/> クラスの新しいインスタンスを初期化します。
         /// </summary>
         /// <param name="appKey">アプリケーション キーを示す <see cref="System.String"/>。</param>
         /// <param name="expression">式ツリーを示す <see cref="System.Linq.Expressions.Expression"/>。</param>
@@ -54,8 +54,8 @@ namespace LinqToCalil {
         /// <summary>
         /// 現在のインスタンスをフィルタ処理します。
         /// </summary>
-        /// <param name="expression">式ツリーを示す <see cref="T:System.Linq.Expressions.Expression`1"/>。</param>
-        /// <returns>フィルタ処理された <see cref="T:LinqToCalil.ICalilQueryableContext`2"/>。</returns>
+        /// <param name="expression">式ツリーを示す <see cref="System.Linq.Expressions.Expression{TDelegate}"/>。</param>
+        /// <returns>フィルタ処理された <see cref="Karamem0.LinqToCalil.ICalilQueryableContext{TParam, TResult}"/>。</returns>
         public ICalilQueryableContext<CalilLibraryParameter, CalilLibraryResult>
             Where(Expression<Func<CalilLibraryParameter, bool>> expression) {
             return new CalilLibraryContext(
@@ -68,7 +68,7 @@ namespace LinqToCalil {
         /// <summary>
         /// 図書館検索の実行結果を反復処理する列挙子を返します。
         /// </summary>
-        /// <returns>実行結果を反復処理する <see cref="T:System.Collections.Generic.IEnumerable`1"/>。</returns>
+        /// <returns>実行結果を反復処理する <see cref="System.Collections.Generic.IEnumerable{T}"/>。</returns>
         public IEnumerable<CalilLibraryResult> AsEnumerable() {
             var provider = new CalilLibraryQueryProvider() {
                 BaseUriString = BaseUriString,

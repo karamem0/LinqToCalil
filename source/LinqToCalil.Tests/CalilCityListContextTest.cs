@@ -7,10 +7,10 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace LinqToCalil.Tests {
+namespace Karamem0.LinqToCalil.Tests {
 
     /// <summary>
-    /// <see cref="LinqToCalil.Calil.GetCityList"/> をテストします。
+    /// <see cref="Karamem0.LinqToCalil.Calil.GetCityList"/> をテストします。
     /// </summary>
     [TestClass()]
     public class CalilCityListContextTest {

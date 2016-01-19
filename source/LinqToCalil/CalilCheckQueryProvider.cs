@@ -8,7 +8,7 @@ using System.Xml.Linq;
 using System.Threading.Tasks;
 using System.Net.Http;
 
-namespace LinqToCalil {
+namespace Karamem0.LinqToCalil {
 
     /// <summary>
     /// 蔵書検索のクエリを作成または実行します。

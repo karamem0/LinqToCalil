@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LinqToCalil {
+namespace Karamem0.LinqToCalil {
 
     /// <summary>
     /// 図書館のカテゴリを指定します。

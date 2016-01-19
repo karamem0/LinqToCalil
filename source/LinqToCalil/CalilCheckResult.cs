@@ -6,7 +6,7 @@ using System.Text;
 using System.Xml.Linq;
 using System.Threading.Tasks;
 
-namespace LinqToCalil {
+namespace Karamem0.LinqToCalil {
 
     /// <summary>
     /// 蔵書検索の実行結果を表します。
@@ -15,10 +15,10 @@ namespace LinqToCalil {
     public class CalilCheckResult : ICalilResult {
 
         /// <summary>
-        /// 指定した XML を <see cref="LinqToCalil.CalilCheckResult"/> のコレクションに変換します。
+        /// 指定した XML を <see cref="Karamem0.LinqToCalil.CalilCheckResult"/> のコレクションに変換します。
         /// </summary>
         /// <param name="element">変換対象の <see cref="System.Xml.Linq.XElement"/>。></param>
-        /// <returns>変換された <see cref="T:System.Collections.Generic.IEnumerable`1"/>。</returns>
+        /// <returns>変換された <see cref="System.Collections.Generic.IEnumerable{T}"/>。</returns>
         public static IEnumerable<CalilCheckResult> Parse(XElement element) {
             return element.Descendants("book")
                 .SelectMany(x => x.Elements("system"))
@@ -39,10 +39,10 @@ namespace LinqToCalil {
         }
 
         /// <summary>
-        /// 指定した文字列を <see cref="LinqToCalil.CalilCheckResult"/> のコレクションに変換します。
+        /// 指定した文字列を <see cref="Karamem0.LinqToCalil.CalilCheckResult"/> のコレクションに変換します。
         /// </summary>
         /// <param name="text">変換対象の <see cref="System.String"/>。></param>
-        /// <returns>変換された <see cref="T:System.Collections.Generic.IEnumerable`1"/>。</returns>
+        /// <returns>変換された <see cref="System.Collections.Generic.IEnumerable{T}"/>。</returns>
         public static IEnumerable<CalilCheckResult> Parse(string text) {
             if (string.IsNullOrEmpty(text) == true) {
                 return null;

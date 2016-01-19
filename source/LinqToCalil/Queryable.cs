@@ -6,7 +6,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LinqToCalil {
+namespace Karamem0.LinqToCalil {
 
     /// <summary>
     /// データ ソースに対するクエリを評価する機能を提供します。
@@ -32,7 +32,7 @@ namespace LinqToCalil {
         public IQueryProvider Provider { get; private set; }
 
         /// <summary>
-        /// <see cref="LinqToCalil.Queryable{T}"/> クラスの新しいインスタンスを初期化します。
+        /// <see cref="Karamem0.LinqToCalil.Queryable{T}"/> クラスの新しいインスタンスを初期化します。
         /// </summary>
         /// <param name="expression">式ツリーを示す <see cref="System.Linq.Expressions.Expression"/>。</param>
         /// <param name="provider">クエリ プロバイダーを示す <see cref="System.Linq.IQueryProvider"/>。</param>
@@ -44,7 +44,7 @@ namespace LinqToCalil {
         /// <summary>
         /// 式ツリーの実行結果を反復処理する厳密に型指定された列挙子を返します。
         /// </summary>
-        /// <returns>実行結果を反復処理する <see cref="T:System.Collections.Generic.IEnumerator`1"/>。</returns>
+        /// <returns>実行結果を反復処理する <see cref="System.Collections.Generic.IEnumerator{T}"/>。</returns>
         public IEnumerator<T> GetEnumerator() {
             return this.Provider.Execute<IEnumerable<T>>(this.Expression).GetEnumerator();
         }

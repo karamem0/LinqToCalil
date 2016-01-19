@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
-namespace LinqToCalil {
+namespace Karamem0.LinqToCalil {
 
     /// <summary>
     /// 図書館検索の実行結果を表します。
@@ -15,10 +15,10 @@ namespace LinqToCalil {
     public class CalilLibraryResult : ICalilResult {
 
         /// <summary>
-        /// 指定した XML を <see cref="LinqToCalil.CalilLibraryResult"/> のコレクションに変換します。
+        /// 指定した XML を <see cref="Karamem0.LinqToCalil.CalilLibraryResult"/> のコレクションに変換します。
         /// </summary>
         /// <param name="text">変換対象の <see cref="System.String"/>。></param>
-        /// <returns>変換された <see cref="T:System.Collections.Generic.IEnumerable`1"/>。</returns>
+        /// <returns>変換された <see cref="System.Collections.Generic.IEnumerable{T}"/>。</returns>
         public static IEnumerable<CalilLibraryResult> Parse(string text) {
             if (string.IsNullOrEmpty(text) == true) {
                 return null;
@@ -116,7 +116,7 @@ namespace LinqToCalil {
         public Category Category { get; set; }
 
         /// <summary>
-        /// <see cref="LinqToCalil.CalilLibraryParameter.Geocode"/>
+        /// <see cref="Karamem0.LinqToCalil.CalilLibraryParameter.Geocode"/>
         /// で指定された地点からの距離を取得または設定します。
         /// </summary>
         [DataMember(Name = "Distance")]

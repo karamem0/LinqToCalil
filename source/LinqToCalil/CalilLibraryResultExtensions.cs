@@ -5,17 +5,17 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace LinqToCalil {
+namespace Karamem0.LinqToCalil {
 
     /// <summary>
-    /// <see cref="LinqToCalil.CalilLibraryResult"/> クラスの拡張メソッドを定義します。
+    /// <see cref="Karamem0.LinqToCalil.CalilLibraryResult"/> クラスの拡張メソッドを定義します。
     /// </summary>
     public static class CalilLibraryResultExtensions {
 
         /// <summary>
-        /// <see cref="LinqToCalil.CalilLibraryResult.Geocode"/> プロパティの経度を返します。
+        /// <see cref="Karamem0.LinqToCalil.CalilLibraryResult.Geocode"/> プロパティの経度を返します。
         /// </summary>
-        /// <param name="target">図書館検索の実行結果を示す <see cref="LinqToCalil.CalilLibraryResult"/>。</param>
+        /// <param name="target">図書館検索の実行結果を示す <see cref="Karamem0.LinqToCalil.CalilLibraryResult"/>。</param>
         /// <returns>経度を示す null 許容型の <see cref="System.Double"/>。</returns>
         public static double? Longitude(this CalilLibraryResult target) {
             var match = Regex.Match(target.Geocode, "^(\\d+\\.?\\d*),(\\d+\\.?\\d*)$");
@@ -26,9 +26,9 @@ namespace LinqToCalil {
         }
 
         /// <summary>
-        /// <see cref="LinqToCalil.CalilLibraryResult.Geocode"/> プロパティの緯度を返します。
+        /// <see cref="Karamem0.LinqToCalil.CalilLibraryResult.Geocode"/> プロパティの緯度を返します。
         /// </summary>
-        /// <param name="target">図書館検索の実行結果を示す <see cref="LinqToCalil.CalilLibraryResult"/>。</param>
+        /// <param name="target">図書館検索の実行結果を示す <see cref="Karamem0.LinqToCalil.CalilLibraryResult"/>。</param>
         /// <returns>緯度を示す null 許容型の <see cref="System.Double"/>。</returns>
         public static double? Latitude(this CalilLibraryResult target) {
             var match = Regex.Match(target.Geocode, "^(\\d+\\.?\\d*),(\\d+\\.?\\d*)$");

@@ -6,17 +6,17 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LinqToCalil {
+namespace Karamem0.LinqToCalil {
 
     /// <summary>
-    /// <see cref="LinqToCalil.ICalilParameter"/> インターフェースの拡張メソッドを定義します。
+    /// <see cref="Karamem0.LinqToCalil.ICalilParameter"/> インターフェースの拡張メソッドを定義します。
     /// </summary>
     internal static class CalilParameterExtensions {
 
         /// <summary>
-        /// <see cref="LinqToCalil.ICalilParameter"/> から式ツリーを作成します。
+        /// <see cref="Karamem0.LinqToCalil.ICalilParameter"/> から式ツリーを作成します。
         /// </summary>
-        /// <param name="target">変換元の <see cref="LinqToCalil.ICalilParameter"/>。</param>
+        /// <param name="target">変換元の <see cref="Karamem0.LinqToCalil.ICalilParameter"/>。</param>
         /// <returns>作成された <see cref="System.Linq.Expressions.Expression"/>。</returns>
         public static Expression CreateExpression(this ICalilParameter target) {
             return target.GetType().GetTypeInfo().DeclaredProperties

@@ -7,7 +7,7 @@ using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LinqToCalil {
+namespace Karamem0.LinqToCalil {
 
     /// <summary>
     /// 式ツリーを URI に変換するための機能を提供します。
@@ -20,7 +20,7 @@ namespace LinqToCalil {
         public Expression Expression { get; private set; }
 
         /// <summary>
-        /// <see cref="LinqToCalil.UriQueryParser"/> クラスの新しいインスタンスを初期化します。
+        /// <see cref="Karamem0.LinqToCalil.UriQueryParser"/> クラスの新しいインスタンスを初期化します。
         /// </summary>
         /// <param name="expression">式ツリーを示す <see cref="System.Linq.Expressions.Expression"/>。</param>
         public UriQueryParser(Expression expression) {

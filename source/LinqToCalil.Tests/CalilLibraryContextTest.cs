@@ -8,10 +8,10 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace LinqToCalil.Tests {
+namespace Karamem0.LinqToCalil.Tests {
 
     /// <summary>
-    /// <see cref="LinqToCalil.Calil.GetLibrary"/> をテストします。
+    /// <see cref="Karamem0.LinqToCalil.Calil.GetLibrary"/> をテストします。
     /// </summary>
     [TestClass()]
     public class CalilLibraryContextTest {
@@ -40,7 +40,7 @@ namespace LinqToCalil.Tests {
         }
 
         /// <summary>
-        /// 都道府県および市区町村を <see cref="LinqToCalil.CalilLibraryParameter"/>
+        /// 都道府県および市区町村を <see cref="Karamem0.LinqToCalil.CalilLibraryParameter"/>
         /// のインスタンスで指定して図書館検索を実行します。
         /// </summary>
         [TestMethod()]

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LinqToCalil {
+namespace Karamem0.LinqToCalil {
 
     /// <summary>
     /// URI クエリに変換可能なプロパティであることを指定します。
@@ -23,7 +23,7 @@ namespace LinqToCalil {
         public string Format { get; private set; }
 
         /// <summary>
-        /// <see cref="LinqToCalil.UriQueryAttribute"/> クラスの新しいインスタンスを初期化します。
+        /// <see cref="Karamem0.LinqToCalil.UriQueryAttribute"/> クラスの新しいインスタンスを初期化します。
         /// </summary>
         /// <param name="key">キー文字列を示す <see cref="System.String"/>。</param>
         public UriQueryAttribute(string key) {
@@ -31,7 +31,7 @@ namespace LinqToCalil {
         }
 
         /// <summary>
-        /// <see cref="LinqToCalil.UriQueryAttribute"/> クラスの新しいインスタンスを初期化します。
+        /// <see cref="Karamem0.LinqToCalil.UriQueryAttribute"/> クラスの新しいインスタンスを初期化します。
         /// </summary>
         /// <param name="key">キー文字列を示す <see cref="System.String"/>。</param>
         /// <param name="format">書式文字列を <see cref="System.String"/>。</param>
