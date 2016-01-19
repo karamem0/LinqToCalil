@@ -4,7 +4,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 
-namespace LinqToCalil {
+namespace Karamem0.LinqToCalil {
 
     /// <summary>
     /// 蔵書検索のコンテキストを表します。
@@ -42,7 +42,7 @@ namespace LinqToCalil {
         public Action<IEnumerable<CalilCheckResult>> OnPolling { get; private set; }
 
         /// <summary>
-        /// <see cref="LinqToCalil.CalilCheckContext"/> クラスの新しいインスタンスを初期化します。
+        /// <see cref="Karamem0.LinqToCalil.CalilCheckContext"/> クラスの新しいインスタンスを初期化します。
         /// </summary>
         /// <param name="appKey">アプリケーション キーを示す <see cref="System.String"/>。</param>
         internal CalilCheckContext(string appKey) {
@@ -51,7 +51,7 @@ namespace LinqToCalil {
         }
 
         /// <summary>
-        /// <see cref="LinqToCalil.CalilCheckContext"/> クラスの新しいインスタンスを初期化します。
+        /// <see cref="Karamem0.LinqToCalil.CalilCheckContext"/> クラスの新しいインスタンスを初期化します。
         /// </summary>
         /// <param name="appKey">アプリケーション キーを示す <see cref="System.String"/>。</param>
         /// <param name="expression">式ツリーを示す <see cref="System.Linq.Expressions.Expression"/>。</param>
@@ -61,7 +61,7 @@ namespace LinqToCalil {
         }
 
         /// <summary>
-        /// <see cref="LinqToCalil.CalilCheckContext"/> クラスの新しいインスタンスを初期化します。
+        /// <see cref="Karamem0.LinqToCalil.CalilCheckContext"/> クラスの新しいインスタンスを初期化します。
         /// </summary>
         /// <param name="appKey">アプリケーション キーを示す <see cref="System.String"/>。</param>
         /// <param name="expression">式ツリーを示す <see cref="System.Linq.Expressions.Expression"/>。</param>
@@ -76,7 +76,7 @@ namespace LinqToCalil {
         /// 現在のインスタンスをフィルタ処理します。
         /// </summary>
         /// <param name="expression">式ツリーを示す <see cref="System.Linq.Expressions.Expression{T}"/>。</param>
-        /// <returns>フィルタ処理された <see cref="LinqToCalil.ICalilQueryableContext{TParam, TResult}"/>。</returns>
+        /// <returns>フィルタ処理された <see cref="Karamem0.LinqToCalil.ICalilQueryableContext{TParam, TResult}"/>。</returns>
         ICalilQueryableContext<CalilCheckParameter, CalilCheckResult>
             ICalilQueryableContext<CalilCheckParameter, CalilCheckResult>.Where(Expression<Func<CalilCheckParameter, bool>> expression) {
             return this.Where(expression);
@@ -86,7 +86,7 @@ namespace LinqToCalil {
         /// 現在のインスタンスをフィルタ処理します。
         /// </summary>
         /// <param name="expression">式ツリーを示す <see cref="System.Linq.Expressions.Expression{T}"/>。</param>
-        /// <returns>フィルタ処理された <see cref="LinqToCalil.ICalilPollingContext{TParam, TResult}"/>。</returns>
+        /// <returns>フィルタ処理された <see cref="Karamem0.LinqToCalil.ICalilPollingContext{TParam, TResult}"/>。</returns>
         public ICalilPollingContext<CalilCheckParameter, CalilCheckResult>
             Where(Expression<Func<CalilCheckParameter, bool>> expression) {
             return new CalilCheckContext(

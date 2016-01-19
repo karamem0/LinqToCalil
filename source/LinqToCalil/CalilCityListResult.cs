@@ -8,7 +8,7 @@ using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LinqToCalil {
+namespace Karamem0.LinqToCalil {
 
     /// <summary>
     /// 市町村リストの実行結果を表します。
@@ -17,10 +17,10 @@ namespace LinqToCalil {
     public class CalilCityListResult : ICalilResult {
 
         /// <summary>
-        /// 指定した JSON 文字列を <see cref="LinqToCalil.CalilCityListResult"/> のコレクションに変換します。
+        /// 指定した JSON 文字列を <see cref="Karamem0.LinqToCalil.CalilCityListResult"/> のコレクションに変換します。
         /// </summary>
         /// <param name="value">変換対象の <see cref="System.String"/>。></param>
-        /// <returns>変換された <see cref="T:System.Collections.Generic.IEnumerable`1"/>。</returns>
+        /// <returns>変換された <see cref="System.Collections.Generic.IEnumerable{T}"/>。</returns>
         public static IEnumerable<CalilCityListResult> Parse(string value) {
             if (string.IsNullOrEmpty(value) == true) {
                 return null;

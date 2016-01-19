@@ -5,10 +5,10 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading;
 
-namespace LinqToCalil.Tests {
+namespace Karamem0.LinqToCalil.Tests {
 
     /// <summary>
-    /// <see cref="LinqToCalil.Calil.GetCheck"/> をテストします。
+    /// <see cref="Karamem0.LinqToCalil.Calil.GetCheck"/> をテストします。
     /// </summary>
     [TestClass()]
     public class CalilCheckContextTest {

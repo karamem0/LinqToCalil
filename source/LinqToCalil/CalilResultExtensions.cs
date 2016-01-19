@@ -6,17 +6,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LinqToCalil {
+namespace Karamem0.LinqToCalil {
 
     /// <summary>
-    /// <see cref="LinqToCalil.ICalilResult"/> インターフェースの拡張メソッドを定義します。
+    /// <see cref="Karamem0.LinqToCalil.ICalilResult"/> インターフェースの拡張メソッドを定義します。
     /// </summary>
     internal static class CalilResultExtensions {
 
         /// <summary>
-        /// <see cref="LinqToCalil.ICalilResult"/> のインスタンスを JSON 形式の文字列に変換します。
+        /// <see cref="Karamem0.LinqToCalil.ICalilResult"/> のインスタンスを JSON 形式の文字列に変換します。
         /// </summary>
-        /// <param name="target">変換対象の <see cref="LinqToCalil.ICalilResult"/>。</param>
+        /// <param name="target">変換対象の <see cref="Karamem0.LinqToCalil.ICalilResult"/>。</param>
         /// <returns>JSON 形式の <see cref="System.String"/>。</returns>
         public static string ToJsonString(this ICalilResult target) {
             var serializer = new JsonSerializer();

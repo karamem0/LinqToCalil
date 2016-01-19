@@ -8,8 +8,8 @@
     <ProjectGuid>{FC046FD5-3F8A-4611-99E7-7BF6B67C524E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>LinqToCalil</RootNamespace>
-    <AssemblyName>LinqToCalil</AssemblyName>
+    <RootNamespace>Karamem0.LinqToCalil</RootNamespace>
+    <AssemblyName>Karamem0.LinqToCalil</AssemblyName>
     <DefaultLanguage>ja-JP</DefaultLanguage>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -24,7 +24,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Debug\LinqToCalil.xml</DocumentationFile>
+    <DocumentationFile>bin\Debug\Karamem0.LinqToCalil.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -33,7 +33,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Release\LinqToCalil.xml</DocumentationFile>
+    <DocumentationFile>bin\Release\Karamem0.LinqToCalil.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Calil.cs" />

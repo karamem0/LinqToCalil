@@ -2,7 +2,7 @@
 <package>
     <metadata>
         <id>LinqToCalil</id>
-        <version>1.0.1</version>
+        <version>1.0.2</version>
         <title>LINQ to Calil</title>
         <authors>karamem0</authors>
         <owners>karamem0</owners>
@@ -11,7 +11,7 @@
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <language>ja-JP</language>
         <description>カーリル (http://calil.jp/) が提供する図書館 API の LINQ プロバイダーです。全国の図書館の蔵書検索を LINQ ライクに実行することができます。</description>
-        <copyright>Copyright © 2011-2015 karamem0</copyright>
+        <copyright>Copyright © 2011-2016 karamem0</copyright>
         <tags>linq</tags>
         <dependencies>
             <dependency id="Newtonsoft.Json" version="7.0.1" />

@@ -5,7 +5,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LinqToCalil {
+namespace Karamem0.LinqToCalil {
 
     /// <summary>
     /// 式ツリーからクエリを作成または実行します。
@@ -17,7 +17,7 @@ namespace LinqToCalil {
         /// </summary>
         /// <typeparam name="TElement">クエリのデータ ソースの型。</typeparam>
         /// <param name="expression">式ツリーを示す <see cref="System.Linq.Expressions.Expression"/>。</param>
-        /// <returns>作成された <see cref="T:System.Linq.IQueryable`1"/>。</returns>
+        /// <returns>作成された <see cref="System.Linq.IQueryable{T}"/>。</returns>
         public IQueryable<TElement> CreateQuery<TElement>(Expression expression) {
             return new Queryable<TElement>(expression, this);
         }
