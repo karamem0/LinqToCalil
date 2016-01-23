@@ -46,33 +46,30 @@ namespace Karamem0.LinqToCalil {
         /// <param name="expression">式ツリーを示す <see cref="System.Linq.Expressions.Expression"/>。</param>
         /// <returns>実行結果を示す <see cref="System.Object"/>。</returns>
         public override object Execute(Expression expression) {
-            var result = default(IEnumerable<CalilCheckResult>);
             using (var client = new HttpClient()) {
                 var builder = new CalilCheckExpressionBuilder() {
                     AppKey = this.AppKey,
                     Format = this.Format,
                 };
                 var expr = builder.Create(expression);
-                while (result == null) {
-                    var xml = default(XElement);
-                    client.GetStringAsync(new UriQueryParser(expr).Parse(this.BaseUriString))
-                        .ContinueWith(task => xml = XElement.Parse(task.Result, LoadOptions.None))
-                        .Wait();
+                while (true) {
+                    var xml = client.GetStringAsync(new UriQueryParser(expr).Parse(this.BaseUriString))
+                        .ContinueWith(task => XElement.Parse(task.Result, LoadOptions.None))
+                        .Wait<XElement>();
                     if ((bool)xml.Element("continue") == true) {
                         if (this.CanPolling != null) {
                             if (this.CanPolling.Invoke(CalilCheckResult.Parse(xml)) == true) {
                                 Task.Delay(PollingInterval).Wait();
                                 expr = builder.Create((string)xml.Element("session"));
                             } else {
-                                break;
+                                return null;
                             }
                         }
                     } else {
-                        result = CalilCheckResult.Parse(xml);
+                        return CalilCheckResult.Parse(xml);
                     }
                 };
             }
-            return result;
         }
 
     }

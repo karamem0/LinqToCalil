@@ -10,7 +10,7 @@ namespace Karamem0.LinqToCalil {
     /// <summary>
     /// <see cref="System.Type"/> の拡張メソッドを定義します。
     /// </summary>
-    internal static class TypeExtension {
+    internal static class TypeExtensions {
 
         /// <summary>
         /// 指定した型がシーケンスの場合、その要素の型を返します。
