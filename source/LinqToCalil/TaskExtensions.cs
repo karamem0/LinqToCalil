@@ -9,7 +9,7 @@ namespace Karamem0.LinqToCalil {
     /// <summary>
     /// <see cref="System.Threading.Tasks.Task{TResult}"/> クラスの拡張メソッドを定義します。
     /// </summary>
-    public static class TaskExtensions {
+    internal static class TaskExtensions {
 
         /// <summary>
         /// 指定した <see cref="System.Threading.Tasks.Task{TResult}"/> の実行を待機して実行結果を返します。
@@ -20,7 +20,7 @@ namespace Karamem0.LinqToCalil {
         public static T Wait<T>(this Task<T> target) {
             var result = default(T);
             target.ContinueWith(task => {
-                if (task.Exception == null) {
+                if (task.IsCanceled != true && task.IsFaulted != true) {
                     result = task.Result;
                 }
             }).Wait();
