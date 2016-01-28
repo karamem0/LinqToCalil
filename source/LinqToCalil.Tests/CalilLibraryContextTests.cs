@@ -14,10 +14,16 @@ namespace Karamem0.LinqToCalil.Tests {
     /// <see cref="Karamem0.LinqToCalil.Calil.GetLibrary"/> をテストします。
     /// </summary>
     [TestClass()]
-    public class CalilLibraryContextTest {
+    public class CalilLibraryContextTests {
 
+        /// <summary>
+        /// アプリケーション キーを取得または設定します。
+        /// </summary>
         public string ApplicationKey { get; set; }
 
+        /// <summary>
+        /// テストを初期化します。
+        /// </summary>
         [TestInitialize()]
         public void TestInitialize() {
             this.ApplicationKey = ConfigurationManager.AppSettings["ApplicationKey"];
@@ -27,7 +33,7 @@ namespace Karamem0.LinqToCalil.Tests {
         /// 都道府県および市区町村を Where メソッドで指定して図書館検索を実行します。
         /// </summary>
         [TestMethod()]
-        public void LibraryAsEnumerable1() {
+        public void LibraryAsEnumerableTest1() {
             var target = Calil.GetLibrary(this.ApplicationKey);
             var actual = target
                 .Where(x => x.Pref == "東京都")
@@ -44,7 +50,7 @@ namespace Karamem0.LinqToCalil.Tests {
         /// のインスタンスで指定して図書館検索を実行します。
         /// </summary>
         [TestMethod()]
-        public void LibraryAsEnumerable2() {
+        public void LibraryAsEnumerableTest2() {
             var target = Calil.GetLibrary(
                 this.ApplicationKey,
                 new CalilLibraryParameter() {
@@ -62,7 +68,7 @@ namespace Karamem0.LinqToCalil.Tests {
         /// 都道府県および市区町村をラムダ式で指定して図書館検索を実行します。
         /// </summary>
         [TestMethod()]
-        public void LibraryAsEnumerable3() {
+        public void LibraryAsEnumerableTest3() {
             var method = new Action(() => {
                 var pref = "東京都";
                 var city = "大田区";

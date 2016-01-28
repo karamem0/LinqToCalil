@@ -13,13 +13,13 @@ namespace Karamem0.LinqToCalil.Tests {
     /// <see cref="Karamem0.LinqToCalil.Calil.GetCityList"/> をテストします。
     /// </summary>
     [TestClass()]
-    public class CalilCityListContextTest {
+    public class CalilCityListContextTests {
 
         /// <summary>
         /// 市町村リストを実行します。
         /// </summary>
         [TestMethod()]
-        public void CityListAsEnumerable() {
+        public void CityListAsEnumerableTest1() {
             var target = Calil.GetCityList();
             var actual = target.AsEnumerable();
             Assert.IsNotNull(actual);
