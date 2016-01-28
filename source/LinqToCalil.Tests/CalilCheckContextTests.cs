@@ -11,10 +11,16 @@ namespace Karamem0.LinqToCalil.Tests {
     /// <see cref="Karamem0.LinqToCalil.Calil.GetCheck"/> をテストします。
     /// </summary>
     [TestClass()]
-    public class CalilCheckContextTest {
+    public class CalilCheckContextTests {
 
+        /// <summary>
+        /// アプリケーション キーを取得または設定します。
+        /// </summary>
         public string ApplicationKey { get; set; }
 
+        /// <summary>
+        /// テストを初期化します。
+        /// </summary>
         [TestInitialize()]
         public void TestInitialize() {
             this.ApplicationKey = ConfigurationManager.AppSettings["ApplicationKey"];
@@ -24,7 +30,7 @@ namespace Karamem0.LinqToCalil.Tests {
         /// OrElse 演算子を使用して蔵書検索を実行します。
         /// </summary>
         [TestMethod()]
-        public void CheckAsEnumerable1() {
+        public void CheckAsEnumerableTest1() {
             var target = Calil.GetCheck(this.ApplicationKey);
             var actual = target
                 .Where(x => x.SystemId == "Tokyo_Ota")
@@ -49,7 +55,7 @@ namespace Karamem0.LinqToCalil.Tests {
         /// カンマ区切りで指定して蔵書検索を実行します。
         /// </summary>
         [TestMethod()]
-        public void CheckAsEnumerable2() {
+        public void CheckAsEnumerableTest2() {
             var target = Calil.GetCheck(this.ApplicationKey);
             var actual = target
                 .Where(x => x.SystemId == "Tokyo_Ota")

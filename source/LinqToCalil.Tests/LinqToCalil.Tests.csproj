@@ -47,9 +47,9 @@
     <Compile Include="..\LinqToCalil\Properties\AssemblyInfo.cs">
       <Link>Properties\AssemblyInfo.cs</Link>
     </Compile>
-    <Compile Include="CalilCheckContextTest.cs" />
-    <Compile Include="CalilCityListContextTest.cs" />
-    <Compile Include="CalilLibraryContextTest.cs" />
+    <Compile Include="CalilCheckContextTests.cs" />
+    <Compile Include="CalilCityListContextTests.cs" />
+    <Compile Include="CalilLibraryContextTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\LinqToCalil\LinqToCalil.csproj">
