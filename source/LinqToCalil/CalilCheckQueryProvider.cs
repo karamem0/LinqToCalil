@@ -57,14 +57,12 @@ namespace Karamem0.LinqToCalil {
                         .ContinueWith(task => XElement.Parse(task.Result, LoadOptions.None))
                         .Wait<XElement>();
                     if ((bool)xml.Element("continue") == true) {
-                        if (this.CanPolling != null) {
-                            if (this.CanPolling.Invoke(CalilCheckResult.Parse(xml)) == true) {
-                                Task.Delay(PollingInterval).Wait();
-                                expr = builder.Create((string)xml.Element("session"));
-                            } else {
-                                return null;
-                            }
+                        if (this.CanPolling == null ||
+                            this.CanPolling.Invoke(CalilCheckResult.Parse(xml)) != true) {
+                            return null;
                         }
+                        Task.Delay(PollingInterval).Wait();
+                        expr = builder.Create((string)xml.Element("session"));
                     } else {
                         return CalilCheckResult.Parse(xml);
                     }
