@@ -17,6 +17,13 @@ namespace Karamem0.LinqToCalil {
         where TResult : ICalilResult {
 
         /// <summary>
+        /// ポーリングが発生したときに実行されるコールバックを指定します。
+        /// </summary>
+        /// <param name="onPolling">ポーリングが発生したときに実行される <see cref="System.Func{T, TResult}"/>。</param>
+        /// <returns>ポーリング指定された <see cref="Karamem0.LinqToCalil.ICalilQueryableContext{TParam, TResult}"/>。</returns>
+        ICalilQueryableContext<TParam, TResult> Polling(Func<IEnumerable<TResult>, bool> onPolling);
+
+        /// <summary>
         /// コンテキストをフィルタ処理します。
         /// </summary>
         /// <param name="expression">式ツリーを示す <see cref="System.Linq.Expressions.Expression{T}"/>。</param>

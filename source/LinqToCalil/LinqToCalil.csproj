@@ -59,7 +59,6 @@
     <Compile Include="Format.cs" />
     <Compile Include="ICalilContext.cs" />
     <Compile Include="ICalilParameter.cs" />
-    <Compile Include="ICalilPollingContext.cs" />
     <Compile Include="ICalilQueryableContext.cs" />
     <Compile Include="ICalilResult.cs" />
     <Compile Include="JsonConverter.cs" />
