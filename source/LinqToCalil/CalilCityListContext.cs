@@ -16,7 +16,7 @@ namespace Karamem0.LinqToCalil {
         /// <summary>
         /// ベース URI 文字列を表します。
         /// </summary>
-        public readonly string BaseUriString = "http://calil.jp/city_list";
+        internal readonly string BaseUriString = "http://calil.jp/city_list";
 
         /// <summary>
         /// 市町村リストの実行結果を反復処理する列挙子を返します。

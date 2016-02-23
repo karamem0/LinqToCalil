@@ -15,40 +15,41 @@ namespace Karamem0.LinqToCalil {
         /// <summary>
         /// ベース URI 文字列を表します。
         /// </summary>
-        public readonly string BaseUriString = "http://api.calil.jp/library";
+        internal readonly string BaseUriString = "http://api.calil.jp/library";
 
         /// <summary>
         /// 実行結果の書式を表します。
         /// </summary>
-        public readonly Format Format = Format.Xml;
+        internal readonly Format Format = Format.Xml;
 
         /// <summary>
         /// アプリケーション キーを取得または設定します。
         /// </summary>
-        public string AppKey { get; private set; }
+        internal string AppKey { get; private set; }
 
         /// <summary>
         /// 現在のインスタンスに関連付けられた式ツリーを取得します。
         /// </summary>
-        public Expression Expression { get; private set; }
-
-        /// <summary>
-        /// <see cref="Karamem0.LinqToCalil.CalilLibraryContext"/> クラスの新しいインスタンスを初期化します。
-        /// </summary>
-        /// <param name="appKey">アプリケーション キーを示す <see cref="System.String"/>。</param>
-        internal CalilLibraryContext(string appKey) {
-            this.AppKey = appKey;
-            this.Expression = null;
-        }
+        internal Expression Expression { get; private set; }
 
         /// <summary>
         /// <see cref="Karamem0.LinqToCalil.CalilLibraryContext"/> クラスの新しいインスタンスを初期化します。
         /// </summary>
         /// <param name="appKey">アプリケーション キーを示す <see cref="System.String"/>。</param>
         /// <param name="expression">式ツリーを示す <see cref="System.Linq.Expressions.Expression"/>。</param>
-        internal CalilLibraryContext(string appKey, Expression expression) {
+        internal CalilLibraryContext(string appKey, Expression expression = null) {
             this.AppKey = appKey;
             this.Expression = expression;
+        }
+
+        /// <summary>
+        /// ポーリングが発生したときに実行されるコールバックを指定します。このコンテキストでは使用できません。
+        /// </summary>
+        /// <param name="onPolling">ポーリングが発生したときに実行される <see cref="System.Func{T, TResult}"/>。</param>
+        /// <returns>ポーリング指定された <see cref="Karamem0.LinqToCalil.ICalilQueryableContext{TParam, TResult}"/>。</returns>
+        public ICalilQueryableContext<CalilLibraryParameter, CalilLibraryResult>
+            Polling(Func<IEnumerable<CalilLibraryResult>, bool> onPolling) {
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -71,8 +72,8 @@ namespace Karamem0.LinqToCalil {
         /// <returns>実行結果を反復処理する <see cref="System.Collections.Generic.IEnumerable{T}"/>。</returns>
         public IEnumerable<CalilLibraryResult> AsEnumerable() {
             var provider = new CalilLibraryQueryProvider() {
-                BaseUriString = BaseUriString,
-                Format = Format,
+                BaseUriString = this.BaseUriString,
+                Format = this.Format,
                 AppKey = this.AppKey,
             };
             return provider.CreateQuery<CalilLibraryResult>(this.Expression);

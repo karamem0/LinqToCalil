@@ -35,13 +35,14 @@ namespace Karamem0.LinqToCalil.Tests {
             var actual = target
                 .Where(x => x.SystemId == "Tokyo_Ota")
                 .Where(x => x.Isbn == "403217010A" || x.Isbn == "4032171009")
-                .AsEnumerable(r => {
+                .Polling(r => {
                     Debug.WriteLine("Polling:" + DateTime.Now.ToString());
                     foreach (var item in r) {
                         Debug.WriteLine(item);
                     }
                     return true;
-                });
+                })
+                .AsEnumerable();
             Assert.IsNotNull(actual);
             var result = actual.ToList();
             Assert.IsNotNull(result);
@@ -60,13 +61,14 @@ namespace Karamem0.LinqToCalil.Tests {
             var actual = target
                 .Where(x => x.SystemId == "Tokyo_Ota")
                 .Where(x => x.Isbn == "403217010X,4032171009")
-                .AsEnumerable(r => {
+                .Polling(r => {
                     Debug.WriteLine("Polling:" + DateTime.Now.ToString());
                     foreach (var item in r) {
                         Debug.WriteLine(item);
                     }
                     return true;
-                });
+                })
+                .AsEnumerable();
             Assert.IsNotNull(actual);
             var result = actual.ToList();
             Assert.IsNotNull(result);

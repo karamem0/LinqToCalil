@@ -38,7 +38,7 @@ namespace Karamem0.LinqToCalil {
         /// <summary>
         /// ポーリングが発生したときに実行するメソッドを取得します。
         /// </summary>
-        public Func<IEnumerable<CalilCheckResult>, bool> CanPolling { get; set; }
+        public Func<IEnumerable<CalilCheckResult>, bool> OnPolling { get; set; }
 
         /// <summary>
         /// 指定した式ツリーを使用して蔵書検索を実行します。
@@ -57,8 +57,8 @@ namespace Karamem0.LinqToCalil {
                         .ContinueWith(task => XElement.Parse(task.Result, LoadOptions.None))
                         .Wait<XElement>();
                     if ((bool)xml.Element("continue") == true) {
-                        if (this.CanPolling == null ||
-                            this.CanPolling.Invoke(CalilCheckResult.Parse(xml)) != true) {
+                        if (this.OnPolling == null ||
+                            this.OnPolling.Invoke(CalilCheckResult.Parse(xml)) != true) {
                             return null;
                         }
                         Task.Delay(PollingInterval).Wait();
