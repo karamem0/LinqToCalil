@@ -2,7 +2,7 @@
 <package>
     <metadata>
         <id>LinqToCalil</id>
-        <version>1.0.2</version>
+        <version>$version$</version>
         <title>LINQ to Calil</title>
         <authors>karamem0</authors>
         <owners>karamem0</owners>
