@@ -46,7 +46,11 @@ namespace Karamem0.LinqToCalil {
         /// </summary>
         /// <returns>実行結果を反復処理する <see cref="System.Collections.Generic.IEnumerator{T}"/>。</returns>
         public IEnumerator<T> GetEnumerator() {
-            return this.Provider.Execute<IEnumerable<T>>(this.Expression).GetEnumerator();
+            var enumerable = this.Provider.Execute<IEnumerable<T>>(this.Expression);
+            if (enumerable == null) {
+                throw new InvalidOperationException();
+            }
+            return enumerable.GetEnumerator();
         }
 
         /// <summary>

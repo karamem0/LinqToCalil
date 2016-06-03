@@ -24,9 +24,11 @@ namespace Karamem0.LinqToCalil {
         /// <returns>実行結果を反復処理する <see cref="System.Collections.Generic.IEnumerable{T}"/>。</returns>
         public IEnumerable<CalilCityListResult> AsEnumerable() {
             using (var client = new HttpClient()) {
-                return client.GetStringAsync(BaseUriString)
-                    .ContinueWith(task => CalilCityListResult.Parse(task.Result))
-                    .Wait<IEnumerable<CalilCityListResult>>();
+                var text = client.GetStringAsync(BaseUriString).Wait<string>();
+                if (text == null) {
+                    throw new InvalidOperationException();
+                }
+                return CalilCityListResult.Parse(text);
             }
         }
 
