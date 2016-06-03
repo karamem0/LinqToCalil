@@ -19,14 +19,14 @@ namespace Karamem0.LinqToCalil {
         /// <summary>
         /// 指定した JSON 文字列を <see cref="Karamem0.LinqToCalil.CalilCityListResult"/> のコレクションに変換します。
         /// </summary>
-        /// <param name="value">変換対象の <see cref="System.String"/>。></param>
+        /// <param name="text">変換対象の <see cref="System.String"/>。></param>
         /// <returns>変換された <see cref="System.Collections.Generic.IEnumerable{T}"/>。</returns>
-        public static IEnumerable<CalilCityListResult> Parse(string value) {
-            if (string.IsNullOrEmpty(value) == true) {
+        public static IEnumerable<CalilCityListResult> Parse(string text) {
+            if (string.IsNullOrEmpty(text) == true) {
                 return null;
             }
             var serializer = new JsonSerializer();
-            using (var reader = new JsonTextReader(new StringReader(JsonConverter.JsonpToJson(value)))) {
+            using (var reader = new JsonTextReader(new StringReader(JsonConverter.JsonpToJson(text)))) {
                 return ((Dictionary<string, Dictionary<string, string[]>>)
                     serializer.Deserialize(reader, typeof(Dictionary<string, Dictionary<string, string[]>>)))
                         .SelectMany(x => x.Value.SelectMany(

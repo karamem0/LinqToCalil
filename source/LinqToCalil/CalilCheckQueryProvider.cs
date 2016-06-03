@@ -53,9 +53,12 @@ namespace Karamem0.LinqToCalil {
                 };
                 var expr = builder.Create(expression);
                 while (true) {
-                    var xml = client.GetStringAsync(new UriQueryParser(expr).Parse(this.BaseUriString))
-                        .ContinueWith(task => XElement.Parse(task.Result, LoadOptions.None))
-                        .Wait<XElement>();
+                    var uri = new UriQueryParser(expr).Parse(this.BaseUriString);
+                    var text = client.GetStringAsync(uri).Wait<string>();
+                    if (text == null) {
+                        return null;
+                    }
+                    var xml = XElement.Parse(text, LoadOptions.None);
                     if ((bool)xml.Element("continue") == true) {
                         if (this.OnPolling == null ||
                             this.OnPolling.Invoke(CalilCheckResult.Parse(xml)) != true) {

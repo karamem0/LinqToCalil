@@ -42,9 +42,11 @@ namespace Karamem0.LinqToCalil {
                 };
                 var expr = builder.Create(expression);
                 var uri = new UriQueryParser(expr).Parse(this.BaseUriString);
-                return client.GetStringAsync(uri)
-                    .ContinueWith(task => CalilLibraryResult.Parse(task.Result))
-                    .Wait<IEnumerable<CalilLibraryResult>>();
+                var text = client.GetStringAsync(uri).Wait<string>();
+                if (text == null) {
+                    return null;
+                }
+                return CalilLibraryResult.Parse(text);
             }
         }
 

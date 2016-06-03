@@ -16,7 +16,8 @@ namespace Karamem0.LinqToCalil {
         /// </summary>
         /// <param name="appKey">アプリケーション キーを示す <see cref="System.String"/>。</param>
         /// <returns>作成された <see cref="Karamem0.LinqToCalil.ICalilQueryableContext{TParam, TResult}"/>。</returns>
-        public static CalilLibraryContext GetLibrary(string appKey) {
+        public static ICalilQueryableContext<CalilLibraryParameter, CalilLibraryResult>
+            GetLibrary(string appKey) {
             return new CalilLibraryContext(appKey);
         }
 
@@ -26,7 +27,8 @@ namespace Karamem0.LinqToCalil {
         /// <param name="appKey">アプリケーション キーを示す <see cref="System.String"/>。</param>
         /// <param name="param">検索フィルタを示す <see cref="Karamem0.LinqToCalil.CalilLibraryParameter"/>。</param>
         /// <returns>作成された <see cref="Karamem0.LinqToCalil.ICalilQueryableContext{TParam, TResult}"/>。</returns>
-        public static CalilLibraryContext GetLibrary(string appKey, CalilLibraryParameter param) {
+        public static ICalilQueryableContext<CalilLibraryParameter, CalilLibraryResult>
+            GetLibrary(string appKey, CalilLibraryParameter param) {
             return new CalilLibraryContext(appKey, param.CreateExpression());
         }
 
@@ -54,8 +56,8 @@ namespace Karamem0.LinqToCalil {
         /// <summary>
         /// 市町村リストのコンテキストを返します。
         /// </summary>
-        /// <returns></returns>
-        public static CalilCityListContext GetCityList() {
+        /// <returns>作成された <see cref="Karamem0.LinqToCalil.ICalilContext{TResult}"/>。</returns>
+        public static ICalilContext<CalilCityListResult> GetCityList() {
             return new CalilCityListContext();
         }
 

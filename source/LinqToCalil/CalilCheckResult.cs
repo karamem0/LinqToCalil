@@ -20,6 +20,9 @@ namespace Karamem0.LinqToCalil {
         /// <param name="element">変換対象の <see cref="System.Xml.Linq.XElement"/>。></param>
         /// <returns>変換された <see cref="System.Collections.Generic.IEnumerable{T}"/>。</returns>
         public static IEnumerable<CalilCheckResult> Parse(XElement element) {
+            if (element == null) {
+                return null;
+            }
             return element.Descendants("book")
                 .SelectMany(x => x.Elements("system"))
                 .Select(x => new CalilCheckResult() {
